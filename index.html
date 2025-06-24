@@ -9,11 +9,14 @@
       background-color: #b30000; /* roșu intens */
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-family: monospace, monospace;
       color: white;
-      user-select: none; /* să nu copiezi accidental altceva */
+      user-select: none;
+      padding: 20px;
+      box-sizing: border-box;
     }
     .container {
       background-color: #330000; /* roșu foarte închis */
@@ -22,6 +25,7 @@
       text-align: center;
       box-shadow: 0 0 20px #660000;
       width: 350px;
+      flex-shrink: 0;
     }
     .address-box {
       background-color: #550000;
@@ -31,7 +35,7 @@
       font-size: 1.1rem;
       letter-spacing: 2px;
       cursor: pointer;
-      user-select: none; /* asta împiedică selecția albastră */
+      user-select: none;
       transition: background-color 0.3s ease;
     }
     .address-box:hover {
@@ -50,18 +54,38 @@
       visibility: visible;
       opacity: 1;
     }
+    button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #550000;
+      border: 2px solid #ff4d4d;
+      border-radius: 8px;
+      color: white;
+      font-family: monospace, monospace;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    button:hover {
+      background-color: #770000;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <p>Send <strong>0,00019 BTC</strong> to the following address</p>
-    <div class="address-box" id="address">$$$$$$$$$</div>
+  <div class="container" id="paymentContainer">
+    <p id="paymentText">Send <strong>0,00019 BTC</strong> to the following address</p>
+    <div class="address-box" id="address">bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw</div>
     <div class="copied-msg" id="copiedMsg">Address copied to clipboard!</div>
   </div>
+  <button id="switchBtn">Pay with ETH instead</button>
 
   <script>
     const addressBox = document.getElementById('address');
     const copiedMsg = document.getElementById('copiedMsg');
+    const paymentText = document.getElementById('paymentText');
+    const switchBtn = document.getElementById('switchBtn');
 
     addressBox.addEventListener('click', () => {
       const address = addressBox.textContent;
@@ -73,6 +97,11 @@
       }).catch(() => {
         alert('Failed to copy address.');
       });
+    });
+
+    switchBtn.addEventListener('click', () => {
+      paymentText.innerHTML = 'Send <strong>0,0083 ETH</strong> to the following address';
+      addressBox.textContent = '0x5a87fa0c9D3352C04371bbde3dB111C158D656cB';
     });
   </script>
 </body>
