@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Info</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #b30000; /* roșu intens */
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: monospace, monospace;
+      color: white;
+      user-select: none; /* să nu copiezi accidental altceva */
+    }
+    .container {
+      background-color: #330000; /* roșu foarte închis */
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px #660000;
+      width: 350px;
+    }
+    .address-box {
+      background-color: #550000;
+      border: 2px solid #ff4d4d;
+      padding: 12px 20px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      user-select: none; /* asta împiedică selecția albastră */
+      transition: background-color 0.3s ease;
+    }
+    .address-box:hover {
+      background-color: #770000;
+    }
+    .copied-msg {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ff8080;
+      height: 18px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .copied-msg.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p>Send <strong>0,00019 BTC</strong> to the following address</p>
+    <div class="address-box" id="address">$$$$$$$$$</div>
+    <div class="copied-msg" id="copiedMsg">Address copied to clipboard!</div>
+  </div>
+
+  <script>
+    const addressBox = document.getElementById('address');
+    const copiedMsg = document.getElementById('copiedMsg');
+
+    addressBox.addEventListener('click', () => {
+      const address = addressBox.textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        copiedMsg.classList.add('visible');
+        setTimeout(() => {
+          copiedMsg.classList.remove('visible');
+        }, 2000);
+      }).catch(() => {
+        alert('Failed to copy address.');
+      });
+    });
+  </script>
+</body>
+</html>
