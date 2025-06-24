@@ -24,7 +24,8 @@
       border-radius: 10px;
       text-align: center;
       box-shadow: 0 0 20px #660000;
-      width: 350px;
+      width: 90%;
+      max-width: 400px;
       flex-shrink: 0;
     }
     .address-box {
@@ -33,10 +34,11 @@
       padding: 12px 20px;
       margin-top: 20px;
       font-size: 1.1rem;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
+      word-break: break-all;
     }
     .address-box:hover {
       background-color: #770000;
@@ -67,9 +69,26 @@
       transition: background-color 0.3s ease;
       user-select: none;
       flex-shrink: 0;
+      max-width: 400px;
+      width: 90%;
     }
     button:hover {
       background-color: #770000;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 25px;
+        width: 95%;
+      }
+      .address-box {
+        font-size: 1rem;
+        padding: 10px 15px;
+        letter-spacing: 1.2px;
+      }
+      button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
@@ -87,6 +106,8 @@
     const paymentText = document.getElementById('paymentText');
     const switchBtn = document.getElementById('switchBtn');
 
+    let isBTC = true;
+
     addressBox.addEventListener('click', () => {
       const address = addressBox.textContent;
       navigator.clipboard.writeText(address).then(() => {
@@ -100,8 +121,17 @@
     });
 
     switchBtn.addEventListener('click', () => {
-      paymentText.innerHTML = 'Send <strong>0,0083 ETH</strong> to the following address';
-      addressBox.textContent = '0x5a87fa0c9D3352C04371bbde3dB111C158D656cB';
+      if (isBTC) {
+        paymentText.innerHTML = 'Send <strong>0,0083 ETH</strong> to the following address';
+        addressBox.textContent = '0x5a87fa0c9D3352C04371bbde3dB111C158D656cB';
+        switchBtn.textContent = 'Pay with BTC instead';
+        isBTC = false;
+      } else {
+        paymentText.innerHTML = 'Send <strong>0,00019 BTC</strong> to the following address';
+        addressBox.textContent = 'bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw';
+        switchBtn.textContent = 'Pay with ETH instead';
+        isBTC = true;
+      }
     });
   </script>
 </body>
