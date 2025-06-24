@@ -38,7 +38,11 @@
       cursor: pointer;
       user-select: none;
       transition: background-color 0.3s ease;
-      word-break: break-all;
+      word-break: break-word;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .address-box:hover {
       background-color: #770000;
@@ -58,13 +62,13 @@
     }
     button {
       margin-top: 30px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       background-color: #550000;
       border: 2px solid #ff4d4d;
       border-radius: 8px;
       color: white;
       font-family: monospace, monospace;
-      font-size: 1rem;
+      font-size: 1.1rem;
       cursor: pointer;
       transition: background-color 0.3s ease;
       user-select: none;
@@ -81,13 +85,13 @@
         width: 95%;
       }
       .address-box {
-        font-size: 1rem;
-        padding: 10px 15px;
-        letter-spacing: 1.2px;
+        font-size: 1.3rem;
+        padding: 18px 25px;
+        min-height: 70px;
       }
       button {
-        font-size: 1rem;
-        padding: 10px 20px;
+        font-size: 1.2rem;
+        padding: 16px 30px;
       }
     }
   </style>
