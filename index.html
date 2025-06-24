@@ -33,6 +33,7 @@
       border: 2px solid #ff4d4d;
       padding: 12px 20px;
       margin-top: 20px;
+      margin-bottom: 10px;
       font-size: 1.1rem;
       letter-spacing: 1.5px;
       cursor: pointer;
@@ -48,13 +49,12 @@
       background-color: #770000;
     }
     .copied-msg, .noti-msg {
-      margin-top: 15px;
       font-size: 0.9rem;
       color: #ff8080;
       height: 18px;
-      visibility: hidden;
       opacity: 0;
-      transition: opacity 0.5s ease;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
     }
     .copied-msg.visible,
     .noti-msg.visible {
@@ -62,7 +62,7 @@
       opacity: 1;
     }
     button {
-      margin-top: 20px;
+      margin-top: 10px;
       padding: 14px 28px;
       background-color: #550000;
       border: 2px solid #ff4d4d;
@@ -102,7 +102,7 @@
     <p id="paymentText">Send <strong>0,00019 BTC</strong> to the following address</p>
     <div class="address-box" id="address">bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw</div>
     <div class="copied-msg" id="copiedMsg">Address copied to clipboard!</div>
-    <button id="paidBtn">I paid</button>
+    <button id="doneBtn">Done</button>
     <div class="noti-msg" id="notiMsg">We didn't receive your payment yet. Please try again in a minute.</div>
   </div>
   <button id="switchBtn">Pay with ETH instead</button>
@@ -112,7 +112,7 @@
     const copiedMsg = document.getElementById('copiedMsg');
     const paymentText = document.getElementById('paymentText');
     const switchBtn = document.getElementById('switchBtn');
-    const paidBtn = document.getElementById('paidBtn');
+    const doneBtn = document.getElementById('doneBtn');
     const notiMsg = document.getElementById('notiMsg');
 
     let isBTC = true;
@@ -143,7 +143,7 @@
       }
     });
 
-    paidBtn.addEventListener('click', () => {
+    doneBtn.addEventListener('click', () => {
       notiMsg.classList.add('visible');
       setTimeout(() => {
         notiMsg.classList.remove('visible');
