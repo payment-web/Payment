@@ -48,18 +48,28 @@
     .address-box:hover {
       background-color: #770000;
     }
-    .copied-msg, .noti-msg {
+    .copied-msg,
+    .noti-msg {
       font-size: 0.9rem;
       color: #ff8080;
-      height: 18px;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.5s ease, visibility 0.5s ease;
     }
-    .copied-msg.visible,
-    .noti-msg.visible {
+    .noti-msg {
+      padding-top: 20px;
+      min-height: 18px;
+    }
+    .visible {
       visibility: visible;
       opacity: 1;
+    }
+    .flash {
+      animation: flashBlink 0.3s ease-in-out 3;
+    }
+    @keyframes flashBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
     button {
       margin-top: 10px;
@@ -121,9 +131,7 @@
       const address = addressBox.textContent;
       navigator.clipboard.writeText(address).then(() => {
         copiedMsg.classList.add('visible');
-        setTimeout(() => {
-          copiedMsg.classList.remove('visible');
-        }, 2000);
+        setTimeout(() => copiedMsg.classList.remove('visible'), 2000);
       }).catch(() => {
         alert('Failed to copy address.');
       });
@@ -145,9 +153,15 @@
 
     doneBtn.addEventListener('click', () => {
       notiMsg.classList.add('visible');
+      
       setTimeout(() => {
+        notiMsg.classList.add('flash');
+      }, 500);
+
+      setTimeout(() => {
+        notiMsg.classList.remove('flash');
         notiMsg.classList.remove('visible');
-      }, 2000);
+      }, 2500);
     });
   </script>
 </body>
